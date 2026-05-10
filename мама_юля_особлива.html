@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для найкращої мами на світі 💜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 700px;
+            width: 90%;
+        }
+
+        .greeting-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greeting-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.5s ease-in-out;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .mama-name {
+            color: #667eea;
+            font-size: 2.2em;
+            margin: 30px 0;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .message {
+            font-size: 1.4em;
+            color: #333;
+            line-height: 1.8;
+            margin: 40px 0;
+            display: none;
+            animation: fadeIn 1.5s ease-in;
+            position: relative;
+            z-index: 1;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .special-message {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+            font-style: italic;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 15px;
+            font-family: 'Comic Sans MS', cursive;
+            transition: all 0.4s;
+            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.5);
+            -webkit-tap-highlight-color: rgba(118, 75, 162, 0.3);
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 12px 35px rgba(118, 75, 162, 0.7);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 35px;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .flower {
+            font-size: 50px;
+            display: inline-block;
+            animation: spin 5s linear infinite;
+            margin: 0 15px;
+        }
+
+        .signature {
+            margin-top: 50px;
+            font-size: 1.8em;
+            color: #764ba2;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .kisses {
+            font-size: 2.5em;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4);
+            text-align: left;
+        }
+
+        .memory-item {
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: #764ba2;
+            position: absolute;
+            animation: confetti-fall 4s linear;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .step1, .step2, .step3, .step4, .step5 {
+            animation: fadeIn 1s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-counter {
+            font-size: 3em;
+            color: #764ba2;
+            font-weight: bold;
+            margin: 30px 0;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .reason-list {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .reason-item {
+            margin: 15px 0;
+            font-size: 1.2em;
+            padding: 10px;
+            background: rgba(118, 75, 162, 0.1);
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="greeting-card">
+            <div class="heart" style="top: 15px; left: 25px;">💜</div>
+            <div class="heart" style="top: 40px; right: 35px;">💜</div>
+            <div class="heart" style="bottom: 25px; left: 45px;">💜</div>
+            <div class="heart" style="bottom: 50px; right: 25px;">💜</div>
+            <div class="heart" style="top: 50%; left: 10px;">💜</div>
+            <div class="heart" style="top: 50%; right: 10px;">💜</div>
+
+            <div id="step1" class="step1">
+                <h1>✨ Для найособливішої людини ✨</h1>
+                <div class="flower">🌸</div>
+                <div class="flower">🌺</div>
+                <div class="flower">🌸</div>
+                <p style="font-size: 1.3em; color: #666; margin: 30px 0; position: relative; z-index: 1;">
+                    Це не просто привітання...<br>
+                    Це послання від серця 💜
+                </p>
+                <button class="button" onclick="showStep2()">Відкрити послання 💌</button>
+            </div>
+
+            <div id="step2" class="step2 hidden">
+                <h1>З Днем Матері!</h1>
+                <p class="mama-name">Моя найкраща мамочко Юля!</p>
+                <div class="message show">
+                    <div class="special-message">
+                        Сьогодні особливий день,<br>
+                        бо я хочу сказати тобі<br>
+                        щось дуже важливе... 💜
+                    </div>
+                </div>
+                <button class="button" onclick="showStep3()">Що саме? 💝</button>
+            </div>
+
+            <div id="step3" class="step3 hidden">
+                <h1>Я люблю тебе...</h1>
+                <div class="love-counter" id="loveCounter">∞</div>
+                <div class="message show">
+                    <strong style="font-size: 1.5em; color: #764ba2;">
+                        НЕСКІНЧЕННО! ♾️
+                    </strong>
+                    <br><br>
+                    І ось чому...
+                </div>
+                <button class="button" onclick="showStep4()">Розкажи мені! 💜</button>
+            </div>
+
+            <div id="step4" class="step4 hidden">
+                <h1>Тому що ти...</h1>
+                <div class="message show">
+                    <div class="reason-list">
+                        <div class="reason-item">🌟 Найтурботливіша мама на світі</div>
+                        <div class="reason-item">💪 Найсильніша жінка, яку я знаю</div>
+                        <div class="reason-item">😊 Завжди знаходиш час для мене</div>
+                        <div class="reason-item">🎨 Робиш моє життя яскравим</div>
+                        <div class="reason-item">🤗 Даєш найкращі обійми у світі</div>
+                        <div class="reason-item">📚 Вчиш мене бути доброю людиною</div>
+                        <div class="reason-item">✨ Моя супергероїня без плаща</div>
+                        <div class="reason-item">💜 Просто найкраща МАМА!</div>
+                    </div>
+                </div>
+                <button class="button" onclick="showStep5()">Ще є щось особливе! 🎁</button>
+            </div>
+
+            <div id="step5" class="step5 hidden">
+                <h1>💜 Моя обіцянка тобі 💜</h1>
+                <div class="message show">
+                    <div class="memory-box">
+                        <div class="memory-item">
+                            🌅 <strong>Кожен ранок</strong> я буду радіти, що ти моя мама
+                        </div>
+                        <div class="memory-item">
+                            🌙 <strong>Кожен вечір</strong> я буду дякувати долі за тебе
+                        </div>
+                        <div class="memory-item">
+                            💝 <strong>Кожен день</strong> я буду намагатися робити тебе щасливою
+                        </div>
+                        <div class="memory-item">
+                            ♾️ <strong>Назавжди</strong> я буду любити тебе всім серцем
+                        </div>
+                    </div>
+                    <div class="special-message" style="margin-top: 30px;">
+                        <strong style="font-size: 1.3em;">
+                            Мамо, ти - мій весь світ! 🌍<br>
+                            Без тебе я б не була тією, хто я є.<br>
+                            Дякую тобі за ВСЕ! 💜
+                        </strong>
+                    </div>
+                </div>
+                <div class="signature">
+                    Твоя донечка Анечка 💜<br>
+                    <small style="font-size: 0.6em; color: #667eea;">Яка тебе нескінченно любить</small>
+                </div>
+                <div class="kisses">
+                    😘💋😘💋😘💋😘💋😘
+                </div>
+                <button class="button" onclick="createConfetti()" style="margin-top: 40px; font-size: 1.4em;">
+                    🎊 Я ЛЮБЛЮ ТЕБЕ, МАМО! 🎊
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStep2() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function showStep3() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+            animateLoveCounter();
+        }
+
+        function showStep4() {
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step4').classList.remove('hidden');
+        }
+
+        function showStep5() {
+            document.getElementById('step4').classList.add('hidden');
+            document.getElementById('step5').classList.remove('hidden');
+        }
+
+        function animateLoveCounter() {
+            const counter = document.getElementById('loveCounter');
+            const symbols = ['💜', '💖', '💝', '💗', '💓', '💕', '∞'];
+            let index = 0;
+            setInterval(() => {
+                counter.textContent = symbols[index];
+                index = (index + 1) % symbols.length;
+            }, 500);
+        }
+
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#ff6b9d', '#ffd93d', '#6bcf7f', '#a29bfe'];
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.width = (Math.random() * 10 + 8) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 25);
+            }
+
+            // Додаємо серця
+            setTimeout(() => {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.textContent = '💜';
+                        heart.style.position = 'fixed';
+                        heart.style.left = Math.random() * 100 + '%';
+                        heart.style.top = '-50px';
+                        heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                        heart.style.animation = 'confetti-fall 3s linear';
+                        heart.style.zIndex = '1000';
+                        document.body.appendChild(heart);
+
+                        setTimeout(() => heart.remove(), 3000);
+                    }, i * 100);
+                }
+            }, 500);
+        }
+
+        // Додаємо touch-обробники для iOS
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    this.click();
+                }, { passive: false });
+            });
+
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach((heart, index) => {
+                heart.style.animationDelay = index * 0.3 + 's';
+            });
+        });
+    </script>
+</body>
+</html>
