@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привітання для бабусі Ліди 💙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #a8d8ea 0%, #aa96da 50%, #fcbad3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .greeting-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #5dade2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .babusya-name {
+            color: #aa96da;
+            font-size: 1.8em;
+            margin: 20px 0;
+            text-decoration: underline wavy #5dade2;
+        }
+
+        .message {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.6;
+            margin: 30px 0;
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #a8d8ea 0%, #5dade2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(93, 173, 226, 0.4);
+            -webkit-tap-highlight-color: rgba(93, 173, 226, 0.3);
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(93, 173, 226, 0.6);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .flower {
+            font-size: 40px;
+            display: inline-block;
+            animation: spin 4s linear infinite;
+            margin: 0 10px;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 1.5em;
+            color: #5dade2;
+            font-weight: bold;
+        }
+
+        .kisses {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #5dade2;
+            position: absolute;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .step1, .step2, .step3, .step4 {
+            animation: fadeIn 0.8s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="greeting-card">
+            <div class="heart" style="top: 10px; left: 20px;">💙</div>
+            <div class="heart" style="top: 30px; right: 30px;">💙</div>
+            <div class="heart" style="bottom: 20px; left: 40px;">💙</div>
+            <div class="heart" style="bottom: 40px; right: 20px;">💙</div>
+
+            <div id="step1" class="step1">
+                <h1>🎉 Привіт, бабусенько! 🎉</h1>
+                <div class="flower">🌺</div>
+                <div class="flower">🏵️</div>
+                <div class="flower">🌺</div>
+                <button class="button" onclick="showStep2()">Натисни мене! 💙</button>
+            </div>
+
+            <div id="step2" class="step2 hidden">
+                <h1>З Днем Матері!</h1>
+                <p class="babusya-name">Бабусю Лідо!</p>
+                <div class="message show">
+                    Ти найкраща бабуся на світі! 🌟<br>
+                    Я тебе дуууууже люблю! 💙
+                </div>
+                <button class="button" onclick="showStep3()">Ще є сюрприз! 🎁</button>
+            </div>
+
+            <div id="step3" class="step3 hidden">
+                <h1>Ти знаєш що?</h1>
+                <div class="message show">
+                    🍰 Ти готуєш найсмачніші пироги!<br><br>
+                    🎨 З тобою весело малювати!<br><br>
+                    📚 Ти знаєш найцікавіші казки!<br><br>
+                    🤗 Твої обійми - найтепліші!<br><br>
+                    ✨ Ти як добра королева!<br><br>
+                    🧸 З тобою найвеселіше!
+                </div>
+                <button class="button" onclick="showStep4()">І ще щось! 💝</button>
+            </div>
+
+            <div id="step4" class="step4 hidden">
+                <h1>💙 Обіцяю! 💙</h1>
+                <div class="message show">
+                    🧸 Буду слухатися<br>
+                    (майже завжди 😊)<br><br>
+                    🥗 Буду їсти все, що ти приготуєш<br>
+                    (бо в тебе найсмачніше! 😋)<br><br>
+                    😴 Буду добре спати<br>
+                    (після твоєї казки 📖)<br><br>
+                    💙 І завжди-завжди тебе любити!<br><br>
+                    🌟 Ти найкраща бабуся у всьому світі!
+                </div>
+                <div class="signature">
+                    Твоя внучка Анечка 💙<br>
+                    <small style="font-size: 0.7em; color: #aa96da;">4 роки</small>
+                </div>
+                <div class="kisses">
+                    😘😘😘😘😘😘😘
+                </div>
+                <button class="button" onclick="createConfetti()" style="margin-top: 30px;">
+                    🎊 УРА! 🎊
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStep2() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function showStep3() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        function showStep4() {
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step4').classList.remove('hidden');
+        }
+
+        function createConfetti() {
+            const colors = ['#a8d8ea', '#5dade2', '#aa96da', '#fcbad3', '#ffffd2'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Додаємо touch-обробники для iOS
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    this.click();
+                }, { passive: false });
+            });
+
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach((heart, index) => {
+                heart.style.animationDelay = index * 0.5 + 's';
+            });
+        });
+    </script>
+</body>
+</html>
